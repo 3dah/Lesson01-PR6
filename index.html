@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="The Mystery of Fire — Grade 6 interactive science experience on the role of air in burning." />
+    <title>The Mystery of Fire · Grade 6 Science</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <!-- Dev CSS; swapped to dist bundle CSS when opened via file:// -->
+    <link rel="stylesheet" href="./src/styles/experience.css" data-app-css />
+    <script>
+      /**
+       * file:// bootstrap:
+       * Chromium blocks ES module scripts on file:// (origin "null" / CORS).
+       * Load the Vite IIFE build as a classic script instead.
+       * HTTP/Vite path is unchanged (module import below).
+       */
+      (function () {
+        if (location.protocol !== 'file:') return;
+        var css = document.querySelector('[data-app-css]');
+        if (css) css.setAttribute('href', './dist/assets/style.css');
+        window.__MYSTERY_FILE_PROTOCOL__ = true;
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="app" class="app">
+      <canvas id="atmosphere" class="atmosphere" aria-hidden="true"></canvas>
+
+      <header class="topbar" role="banner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div class="brand-text">
+            <p class="brand-kicker">Grade 6 Science</p>
+            <h1 class="brand-title">The Mystery of Fire</h1>
+          </div>
+        </div>
+        <nav class="progress" id="progress" aria-label="Lesson chapters"></nav>
+        <div class="top-actions">
+          <button type="button" class="icon-btn" id="mute-btn" aria-pressed="false" aria-label="Mute sound">
+            <span class="icon-sound" aria-hidden="true"></span>
+          </button>
+        </div>
+      </header>
+
+      <main id="stage" class="stage" role="main" aria-live="polite"></main>
+
+      <footer class="bottombar" role="contentinfo">
+        <button type="button" class="nav-btn" id="back-btn" disabled>Back</button>
+        <p class="chapter-label" id="chapter-label"></p>
+        <button type="button" class="nav-btn nav-btn-primary" id="next-btn">Continue</button>
+      </footer>
+
+      <div id="gate" class="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+        <div class="gate-inner">
+          <p class="gate-kicker">Interactive Science Experience</p>
+          <h2 id="gate-title" class="gate-title">The Mystery of Fire</h2>
+          <p class="gate-sub">What does a flame need to keep burning?</p>
+          <button type="button" class="gate-cta" id="enter-btn">Begin the Investigation</button>
+          <p class="gate-note">Best experienced with sound. You can mute anytime.</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        if (location.protocol !== 'file:') return;
+        var s = document.createElement('script');
+        s.src = './dist/assets/app.js';
+        s.defer = true;
+        s.onerror = function () {
+          var gate = document.querySelector('.gate-inner');
+          if (!gate) return;
+          var note = document.createElement('p');
+          note.className = 'gate-note';
+          note.style.color = '#ffb0a8';
+          note.innerHTML =
+            'Static build not found. Run <code style="color:#9efff0">npm run build</code> once, then reopen this file.';
+          gate.appendChild(note);
+        };
+        document.body.appendChild(s);
+      })();
+    </script>
+
+    <!-- Vite / http entry — skipped under file:// -->
+    <script type="module">
+      if (location.protocol !== 'file:') {
+        import('./src/main.js');
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+FILE: C:\Users\ah199\Desktop\New folder (4)\exports\powerpoint\Slide08-Animation-Prototype.pptx
+SLIDES: 1
+ANIMATION_EFFECTS: 47
+CORE_OBJECTS: OBJ_Candle, OBJ_Wick, OBJ_Flame_Strong, OBJ_FlameCore_Strong, OBJ_Flame_Medium, OBJ_FlameCore_Medium, OBJ_Flame_Tiny, OBJ_FlameCore_Tiny, OBJ_Jar, OBJ_JarRim, OBJ_Oxygen_01, OBJ_Oxygen_02, OBJ_Oxygen_03, OBJ_Oxygen_04, OBJ_Oxygen_05, OBJ_Oxygen_06, OBJ_Oxygen_07, OBJ_Oxygen_08, OBJ_Oxygen_09, OBJ_Oxygen_10, OBJ_Oxygen_11, OBJ_Oxygen_12, OBJ_Oxygen_13, OBJ_Oxygen_14, OBJ_Oxygen_15, OBJ_Oxygen_16, OBJ_Smoke
+OXYGEN_PARTICLES: 16 (OBJ_Oxygen_01, OBJ_Oxygen_02, OBJ_Oxygen_03, OBJ_Oxygen_04...)
+
+SEQUENCE (click-driven):
+  Click 1: Stage2 + wave1 oxygen PathDown MOTION + EXIT fade + Flame Strong→Medium
+  Click 2: Stage3 + wave2 MOTION + EXIT + Flame Medium→Tiny
+  Click 3: Stage4 + wave3 MOTION + EXIT + Flame Tiny EXIT + smoke + caption
+
+VERIFY IN POWERPOINT:
+  1. Open file
+  2. Select Animation Pane
+  3. Confirm named shapes + Exit/Motion/Appear effects
+  4. Start Slideshow and click through 3 stages
